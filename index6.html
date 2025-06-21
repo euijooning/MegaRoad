@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메가스터디 로드맵 만들기</title>
+    <title>메가로드 로드맵 만들기</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter font from Google Fonts -->
@@ -45,7 +45,7 @@
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <div class="flex items-center space-x-4">
-                    <h1 class="text-2xl font-bold text-blue-600">메가스터디</h1>
+                    <h1 class="text-2xl font-bold text-blue-600">메가로드</h1>
                     <span class="text-sm text-gray-500 hidden md:block">로드맵 플랫폼</span>
                 </div>
                 
@@ -275,7 +275,7 @@
                 document.getElementById('downloadScreenshot').style.display = 'block';
 
                 const link = document.createElement('a');
-                link.download = '메가스터디_로드맵_만들기.png';
+                link.download = '메가로드_로드맵_만들기.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             }).catch(function(error) {
