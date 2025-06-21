@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메가스터디 마이페이지 - 나의 로드맵 관리</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Noto Sans KR for Korean text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- html2canvas for screenshot functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        /* Custom font stack, prioritizing Inter, then Noto Sans KR, then fallbacks */
+        body {
+            font-family: 'Inter', 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            color: #333; /* Default text color */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 font-inter">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <h1 class="text-2xl font-bold text-blue-600">메가스터디</h1>
+                    <span class="text-sm text-gray-500 hidden md:block">로드맵 플랫폼</span>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="1.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">홈</a>
+                    <a href="2.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">로드맵 탐색</a>
+                    <a href="5.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">마이페이지</a>
+                    <a href="6.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">로드맵 만들기</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="1.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">홈</a>
+                    <a href="2.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">로드맵 탐색</a>
+                    <a href="5.html" class="text-blue-600 font-semibold px-3 py-2 rounded-lg bg-blue-50">마이페이지</a>
+                    <a href="6.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">로드맵 만들기</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-col items-center justify-center p-4">
+
+        <!-- Main MyPage Container -->
+        <div id="mypage-content" class="max-w-4xl w-full bg-white rounded-2xl shadow-xl p-8 space-y-8 my-8">
+
+            <!-- 상단 영역: 사용자 정보 요약 -->
+            <section class="text-center space-y-4 pb-6 border-b border-gray-200">
+                <h1 class="text-3xl font-extrabold text-gray-900 leading-tight">
+                    ✨ <span class="text-blue-600">김메가</span>님의 학습 공간
+                </h1>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-md text-gray-700">
+                    <span class="flex items-center"><i class="fas fa-pencil-ruler text-blue-500 mr-2"></i> 만든 로드맵: <span class="font-bold text-blue-700 ml-1">3개</span></span>
+                    <span class="flex items-center"><i class="fas fa-route text-purple-500 mr-2"></i> 따라가는 로드맵: <span class="font-bold text-purple-700 ml-1">2개</span></span>
+                    <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> 완료한 로드맵: <span class="font-bold text-green-700 ml-1">1개</span></span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-xl text-gray-800 text-sm font-medium shadow-inner flex flex-col sm:flex-row justify-around items-center gap-4 mt-4">
+                    <span class="flex items-center"><i class="fas fa-chart-line text-orange-500 mr-2"></i> 학습 진도율 평균: <span class="font-bold text-orange-700 ml-1">62%</span></span>
+                    <span class="flex items-center"><i class="fas fa-share-alt text-teal-500 mr-2"></i> 내 로드맵이 <span class="font-bold text-teal-700 ml-1">24명</span>에게 공유됨!</span>
+                </div>
+            </section>
+
+            <!-- 중단 영역 ①: 내가 만든 로드맵 리스트 -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-extrabold text-gray-900">내가 만든 로드맵</h2>
+
+                <!-- 보너스 요소: 가장 반응 좋은 내 로드맵 강조 -->
+                <div class="bg-yellow-50 p-5 rounded-xl border border-yellow-200 shadow-md flex items-center space-x-4">
+                    <i class="fas fa-star text-yellow-500 text-2xl"></i>
+                    <div>
+                        <p class="font-bold text-yellow-800 text-lg">가장 반응 좋은 내 로드맵!</p>
+                        <p class="text-sm text-gray-700">"수능 국어 1등급 로드맵"이 15명에게 공유되고 32개의 좋아요를 받았어요!</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 내가 만든 로드맵 카드 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 space-y-3 transform transition duration-300 hover:scale-[1.01] hover:shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-800">수능 국어 1등급 로드맵</h3>
+                        <p class="text-sm text-gray-600">작성일: 2025.03.10 | 목표: 수능 국어 1등급 | 구성 기간: 4주</p>
+                        <div class="flex items-center space-x-3 mt-2">
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-purple-500 h-3 rounded-full" style="width: 75%;"></div>
+                            </div>
+                            <span class="text-sm font-semibold text-purple-600">75%</span>
+                        </div>
+                        <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-700 mt-3">
+                            <span class="flex items-center"><i class="fas fa-share-alt mr-1 text-blue-500"></i> 공유 15회</span>
+                            <span class="flex items-center"><i class="fas fa-heart mr-1 text-red-500"></i> 좋아요 32개</span>
+                        </div>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            <button onclick="window.location.href='6.html'" class="flex-1 bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-200 shadow-sm">
+                                수정하기
+                            </button>
+                            <button class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-sm">
+                                공유 중단
+                            </button>
+                            <button class="flex-1 bg-red-500 text-white py-2 rounded-full font-semibold hover:bg-red-600 transition-colors duration-200 shadow-sm">
+                                삭제
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 내가 만든 로드맵 카드 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 space-y-3 transform transition duration-300 hover:scale-[1.01] hover:shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-800">수학(상) 개념 마스터 로드맵</h3>
+                        <p class="text-sm text-gray-600">작성일: 2025.05.01 | 목표: 수학(상) 개념 완벽 이해 | 구성 기간: 3주</p>
+                        <div class="flex items-center space-x-3 mt-2">
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-purple-500 h-3 rounded-full" style="width: 40%;"></div>
+                            </div>
+                            <span class="text-sm font-semibold text-purple-600">40%</span>
+                        </div>
+                        <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-700 mt-3">
+                            <span class="flex items-center"><i class="fas fa-share-alt mr-1 text-blue-500"></i> 공유 8회</span>
+                            <span class="flex items-center"><i class="fas fa-heart mr-1 text-red-500"></i> 좋아요 10개</span>
+                        </div>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            <button onclick="window.location.href='6.html'" class="flex-1 bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-200 shadow-sm">
+                                수정하기
+                            </button>
+                            <button class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-sm">
+                                공유 중단
+                            </button>
+                            <button class="flex-1 bg-red-500 text-white py-2 rounded-full font-semibold hover:bg-red-600 transition-colors duration-200 shadow-sm">
+                                삭제
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 중단 영역 ②: 내가 따라가는 로드맵 -->
+            <section class="space-y-6 pt-6">
+                <h2 class="text-2xl font-extrabold text-gray-900">내가 따라가는 로드맵</h2>
+                <div class="space-y-4">
+                    <!-- 따라가는 로드맵 카드 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 space-y-3 transform transition duration-300 hover:scale-[1.01] hover:shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-800">2025 수능 영어 독해 마스터</h3>
+                        <p class="text-sm text-gray-600">시작일: 2025.04.15</p>
+                        <div class="flex items-center space-x-3 mt-2">
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-blue-500 h-3 rounded-full" style="width: 60%;"></div>
+                            </div>
+                            <span class="text-sm font-semibold text-blue-600">60%</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mt-2">
+                            다음 예정 강의: <span class="font-semibold">UNIT 7. 빈칸 추론 고난도</span>
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            <button onclick="window.location.href='3.html'" class="flex-1 bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-200 shadow-sm">
+                                진도 계속하기
+                            </button>
+                            <button onclick="window.location.href='4.html'" class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-sm">
+                                계획 다시 설정
+                            </button>
+                            <button class="flex-1 bg-red-500 text-white py-2 rounded-full font-semibold hover:bg-red-600 transition-colors duration-200 shadow-sm">
+                                포기하기
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 따라가는 로드맵 카드 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 space-y-3 transform transition duration-300 hover:scale-[1.01] hover:shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-800">한국사 능력 검정 시험 심화</h3>
+                        <p class="text-sm text-gray-600">시작일: 2025.06.01</p>
+                        <div class="flex items-center space-x-3 mt-2">
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-blue-500 h-3 rounded-full" style="width: 20%;"></div>
+                            </div>
+                            <span class="text-sm font-semibold text-blue-600">20%</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mt-2">
+                            다음 예정 강의: <span class="font-semibold">삼국시대 주요 사건 정리</span>
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            <button onclick="window.location.href='3.html'" class="flex-1 bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-200 shadow-sm">
+                                진도 계속하기
+                            </button>
+                            <button onclick="window.location.href='4.html'" class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200 shadow-sm">
+                                계획 다시 설정
+                            </button>
+                            <button class="flex-1 bg-red-500 text-white py-2 rounded-full font-semibold hover:bg-red-600 transition-colors duration-200 shadow-sm">
+                                포기하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 하단 영역: 로드맵 작성 유도 -->
+            <section class="mt-8 pt-6 border-t border-gray-200 text-center space-y-4">
+                <h2 class="text-2xl font-extrabold text-gray-900">나만의 로드맵 만들기</h2>
+                <p class="text-gray-600 leading-snug">
+                    친구들이 참고할 수 있도록, 나만의 학습 흐름을 공유해보세요!<br>
+                    내 수강 기록을 불러와 자동 구성도 시작할 수 있어요.
+                </p>
+                <button onclick="window.location.href='6.html'" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-8 rounded-full font-extrabold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-in-out">
+                    ✨ 새로운 로드맵 만들어보기
+                </button>
+            </section>
+        </div>
+
+        <!-- Screenshot Button -->
+        <div class="mt-8 mb-8 flex justify-center">
+            <button id="downloadScreenshot" class="bg-green-500 text-white py-3 px-6 rounded-full font-semibold shadow-md hover:bg-green-600 transition-colors duration-200">
+                ✅ 스크린샷 다운로드
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.getElementById('downloadScreenshot').addEventListener('click', function() {
+            const mypageContent = document.getElementById('mypage-content');
+
+            // Temporarily hide the screenshot button itself if it's within the captured area
+            this.style.display = 'none';
+
+            html2canvas(mypageContent, {
+                scale: window.devicePixelRatio, // Use device pixel ratio for better quality on high-DPI screens
+                useCORS: true // Required if any images are loaded from external origins
+            }).then(function(canvas) {
+                // Restore the button display
+                document.getElementById('downloadScreenshot').style.display = 'block';
+
+                const link = document.createElement('a');
+                link.download = '메가스터디_마이페이지_로드맵_관리.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(function(error) {
+                console.error('Oops, something went wrong!', error);
+                // Restore the button display even if there's an error
+                document.getElementById('downloadScreenshot').style.display = 'block';
+                // Display a user-friendly message
+                const messageBox = document.createElement('div');
+                messageBox.textContent = '스크린샷 저장에 실패했습니다. 다시 시도해주세요.';
+                messageBox.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #f44336;
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                `;
+                document.body.appendChild(messageBox);
+                setTimeout(() => {
+                    messageBox.style.opacity = '1';
+                }, 10); // Slight delay for transition effect
+                setTimeout(() => {
+                    messageBox.style.opacity = '0';
+                    messageBox.addEventListener('transitionend', () => messageBox.remove());
+                }, 3000); // Hide after 3 seconds
+            });
+        });
+    </script>
+
+</body>
+</html>

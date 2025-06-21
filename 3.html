@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메가스터디 로드맵 상세</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Noto Sans KR for Korean text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- html2canvas for screenshot functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        /* Custom font stack, prioritizing Inter, then Noto Sans KR, then fallbacks */
+        body {
+            font-family: 'Inter', 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            color: #333; /* Default text color */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 font-inter">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <h1 class="text-2xl font-bold text-blue-600">메가스터디</h1>
+                    <span class="text-sm text-gray-500 hidden md:block">로드맵 플랫폼</span>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="1.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">홈</a>
+                    <a href="2.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">로드맵 탐색</a>
+                    <a href="5.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">마이페이지</a>
+                    <a href="6.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">로드맵 만들기</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="1.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">홈</a>
+                    <a href="2.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">로드맵 탐색</a>
+                    <a href="5.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">마이페이지</a>
+                    <a href="6.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-gray-50">로드맵 만들기</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-col items-center justify-center p-4">
+
+        <!-- Main Detail Container -->
+        <div id="detail-content" class="max-w-4xl w-full bg-white rounded-2xl shadow-xl p-8 space-y-8 my-8">
+
+            <!-- 상단 영역: 로드맵 기본 정보 요약 -->
+            <section class="space-y-4 pb-6 border-b border-gray-200">
+                <h1 class="text-3xl font-extrabold text-gray-900 leading-tight">
+                    🔥 3등급에서 1등급으로! 국어 단기 완성 로드맵
+                </h1>
+                <p class="text-md text-gray-600">
+                    작성자: <span class="font-semibold text-blue-600">@수능만점러 / 고3 수능 실전형</span>
+                </p>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-md text-gray-700">
+                    <span class="flex items-center"><span class="text-blue-500 mr-2">🎯</span> 학습 목표: 수능 국어 1등급</span>
+                    <span class="flex items-center"><span class="text-purple-500 mr-2">📚</span> 총 강의 수: 35개</span>
+                    <span class="flex items-center"><span class="text-green-500 mr-2">⏱️</span> 총 예상 소요 시간: 80시간</span>
+                    <span class="flex items-center"><span class="text-orange-500 mr-2">🗓️</span> 구성 기간: 4주</span>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-xl text-blue-800 text-sm font-medium shadow-inner">
+                    <p>💡 이 로드맵은 이런 학생에게 추천합니다:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-0.5">
+                        <li>단기간에 국어 등급을 올리고 싶은 학생</li>
+                        <li>비문학 독해력 향상이 필요한 학생</li>
+                        <li>개념과 실전 문제풀이의 균형이 필요한 학생</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 중단 영역: 구성 이유 / 설명 / 전략 -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-extrabold text-gray-900">로드맵 설계자의 한마디</h2>
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-xl shadow-md text-yellow-800 italic relative">
+                    <svg class="absolute top-3 left-3 w-6 h-6 text-yellow-400 opacity-60" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-8.03c2.09-.13 3.75-1.85 3.75-3.97V2h-2zm10 0H19V2h-2v7H15V2h-2v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-8.03c2.09-.13 3.75-1.85 3.75-3.97V2h-2z"/>
+                    </svg>
+                    <p class="ml-8 text-gray-700">
+                        "저는 비문학 독해에 특히 약해서 중단락 요약부터 시작했습니다. 개념이 부족하면 아무리 문제를 풀어도 소용없다는 것을 깨달았죠. 이 로드맵은 기본적인 개념을 탄탄히 다진 후, 실제 문제에 적용하며 실력을 향상시키는 데 초점을 맞췄습니다."
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-extrabold text-gray-900 mt-8 mb-4">로드맵 흐름 한눈에 보기</h2>
+
+                <div class="space-y-6">
+                    <!-- 로드맵 단계 1 -->
+                    <div class="bg-gray-100 p-5 rounded-xl shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <span class="inline-flex items-center justify-center w-8 h-8 mr-3 bg-blue-600 text-white rounded-full font-bold text-lg">1</span>
+                            <h3 class="text-xl font-bold text-gray-800">기초 개념 정복</h3>
+                        </div>
+                        <div class="ml-11 text-gray-700 text-sm mb-3">
+                            <p>⏱️ 예상 소요 시간: 15시간 (총 5강)</p>
+                            <p class="mt-1">
+                                <span class="font-semibold text-blue-700">설계 의도:</span> "가장 기본이 되는 국어 개념을 다지는 단계입니다. 개념이 탄탄해야 다음 단계로 넘어갈 수 있어요."
+                            </p>
+                        </div>
+                        <div class="ml-11 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- 강의 카드 예시 -->
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 transform transition duration-200 hover:scale-[1.01] hover:shadow-md">
+                                <p class="font-semibold text-lg text-gray-800">독서론 핵심 개념 총정리</p>
+                                <p class="text-sm text-gray-600 mt-1">강의: 3개 | ⏳ 4시간</p>
+                                <a href="#" class="text-blue-500 hover:underline text-sm mt-2 block">강의 상세 보기 &rarr;</a>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 transform transition duration-200 hover:scale-[1.01] hover:shadow-md">
+                                <p class="font-semibold text-lg text-gray-800">문학 개념어 마스터</p>
+                                <p class="text-sm text-gray-600 mt-1">강의: 2개 | ⏳ 3시간</p>
+                                <a href="#" class="text-blue-500 hover:underline text-sm mt-2 block">강의 상세 보기 &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 로드맵 단계 2 -->
+                    <div class="bg-gray-100 p-5 rounded-xl shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <span class="inline-flex items-center justify-center w-8 h-8 mr-3 bg-purple-600 text-white rounded-full font-bold text-lg">2</span>
+                            <h3 class="text-xl font-bold text-gray-800">문제 적용 훈련</h3>
+                        </div>
+                        <div class="ml-11 text-gray-700 text-sm mb-3">
+                            <p>⏱️ 예상 소요 시간: 25시간 (총 10강)</p>
+                            <p class="mt-1">
+                                <span class="font-semibold text-purple-700">설계 의도:</span> "개념 학습 후 바로 문제에 적용하는 연습이 중요하다고 생각했어요. 실전 감각을 익히는 단계입니다."
+                            </p>
+                        </div>
+                         <div class="ml-11 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 transform transition duration-200 hover:scale-[1.01] hover:shadow-md">
+                                <p class="font-semibold text-lg text-gray-800">비문학 지문 분석 스킬</p>
+                                <p class="text-sm text-gray-600 mt-1">강의: 5개 | ⏳ 10시간</p>
+                                <a href="#" class="text-blue-500 hover:underline text-sm mt-2 block">강의 상세 보기 &rarr;</a>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 transform transition duration-200 hover:scale-[1.01] hover:shadow-md">
+                                <p class="font-semibold text-lg text-gray-800">문학 유형별 문제 풀이</p>
+                                <p class="text-sm text-gray-600 mt-1">강의: 5개 | ⏳ 8시간</p>
+                                <a href="#" class="text-blue-500 hover:underline text-sm mt-2 block">강의 상세 보기 &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 로드맵 단계 3 -->
+                    <div class="bg-gray-100 p-5 rounded-xl shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-3">
+                            <span class="inline-flex items-center justify-center w-8 h-8 mr-3 bg-green-600 text-white rounded-full font-bold text-lg">3</span>
+                            <h3 class="text-xl font-bold text-gray-800">실전 모의고사 및 오답노트</h3>
+                        </div>
+                        <div class="ml-11 text-gray-700 text-sm mb-3">
+                            <p>⏱️ 예상 소요 시간: 40시간 (총 20강)</p>
+                            <p class="mt-1">
+                                <span class="font-semibold text-green-700">설계 의도:</span> "실전 감각을 극대화하고 약점을 보완하는 단계입니다. 오답노트를 통해 완벽을 추구하세요."
+                            </p>
+                        </div>
+                        <div class="ml-11 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 transform transition duration-200 hover:scale-[1.01] hover:shadow-md">
+                                <p class="font-semibold text-lg text-gray-800">실전 모의고사 10회</p>
+                                <p class="text-sm text-gray-600 mt-1">강의: 10개 | ⏳ 20시간</p>
+                                <a href="#" class="text-blue-500 hover:underline text-sm mt-2 block">강의 상세 보기 &rarr;</a>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 transform transition duration-200 hover:scale-[1.01] hover:shadow-md">
+                                <p class="font-semibold text-lg text-gray-800">오답노트 작성법 및 활용</p>
+                                <p class="text-sm text-gray-600 mt-1">강의: 10개 | ⏳ 15시간</p>
+                                <a href="#" class="text-blue-500 hover:underline text-sm mt-2 block">강의 상세 보기 &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 하단 영역: 액션 영역 -->
+            <section class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+                    <button onclick="window.location.href='4.html'" class="flex-1 bg-blue-600 text-white py-4 px-8 rounded-full font-extrabold text-xl shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition duration-300 ease-in-out">
+                        🚀 이 로드맵 따라가기
+                    </button>
+                    <button onclick="window.location.href='5.html'" class="flex-1 bg-white border border-gray-300 text-gray-800 py-4 px-8 rounded-full font-extrabold text-xl shadow-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300 ease-in-out">
+                        ❤️ 찜하기
+                    </button>
+                </div>
+                <div class="mt-4 flex justify-center">
+                    <a href="2.html" class="text-blue-500 hover:underline font-semibold text-md">비슷한 로드맵 더 보기</a>
+                </div>
+
+                <!-- 해당 로드맵을 만든 학생의 다른 로드맵 추천 (placeholder) -->
+                <div class="mt-10 bg-gray-50 p-6 rounded-xl shadow-inner text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">✨ 이 학생의 다른 로드맵 추천</h3>
+                    <p class="text-gray-600">
+                        [ 캐러셀 UI로 다른 로드맵들이 표시될 영역입니다. ]
+                    </p>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                            <h4 class="font-semibold text-gray-800">수학 심화 개념 정리</h4>
+                            <p class="text-sm text-gray-600">@수능만점러</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                            <h4 class="font-semibold text-gray-800">수능 영어 딕테이션 훈련</h4>
+                            <p class="text-sm text-gray-600">@수능만점러</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                            <h4 class="font-semibold text-gray-800">화학 I 실전 문제</h4>
+                            <p class="text-sm text-gray-600">@수능만점러</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Screenshot Button -->
+        <div class="mt-8 mb-8 flex justify-center">
+            <button id="downloadScreenshot" class="bg-green-500 text-white py-3 px-6 rounded-full font-semibold shadow-md hover:bg-green-600 transition-colors duration-200">
+                ✅ 스크린샷 다운로드
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.getElementById('downloadScreenshot').addEventListener('click', function() {
+            const detailPage = document.getElementById('detail-content');
+
+            // Temporarily hide the screenshot button itself if it's within the captured area
+            this.style.display = 'none';
+
+            html2canvas(detailPage, {
+                scale: window.devicePixelRatio, // Use device pixel ratio for better quality on high-DPI screens
+                useCORS: true // Required if any images are loaded from external origins
+            }).then(function(canvas) {
+                // Restore the button display
+                document.getElementById('downloadScreenshot').style.display = 'block';
+
+                const link = document.createElement('a');
+                link.download = '메가스터디_로드맵_상세.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(function(error) {
+                console.error('Oops, something went wrong!', error);
+                // Restore the button display even if there's an error
+                document.getElementById('downloadScreenshot').style.display = 'block';
+                // Display a user-friendly message
+                const messageBox = document.createElement('div');
+                messageBox.textContent = '스크린샷 저장에 실패했습니다. 다시 시도해주세요.';
+                messageBox.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #f44336;
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                `;
+                document.body.appendChild(messageBox);
+                setTimeout(() => {
+                    messageBox.style.opacity = '1';
+                }, 10); // Slight delay for transition effect
+                setTimeout(() => {
+                    messageBox.style.opacity = '0';
+                    messageBox.addEventListener('transitionend', () => messageBox.remove());
+                }, 3000); // Hide after 3 seconds
+            });
+        });
+    </script>
+
+</body>
+</html>
